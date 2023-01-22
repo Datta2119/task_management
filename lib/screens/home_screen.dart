@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.lightBlueAccent,
               child: Row(
                 children: [
-
                   // ** EMPLOYEE IMAGE AND NAME SECTION ** //
                   SizedBox(
                     width: 100.0,
@@ -74,11 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               AssetImage('assets/images/employee1.jpg'),
                           radius: 40.0,
                         ),
-
                         const SizedBox(
                           height: 6.0,
                         ),
-
                         Align(
                           alignment: const Alignment(0.3, 5),
                           child: Text(
@@ -95,27 +92,31 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // ** TASK DETAIL SECTION ** //
 
-                  const SizedBox(width: 20.0,),
+                  const SizedBox(
+                    width: 20.0,
+                  ),
+
                   SizedBox(
                     width: 300.0,
                     height: 120.0,
                     // color: Colors.greenAccent,
                     child: Column(
                       children: [
-                        const SizedBox(height: 14.0,),
-
+                        const SizedBox(
+                          height: 10.0,
+                        ),
                         Align(
                           child: Text(
-                              'Task: Take an appointment from Esquire Group',
+                            'Task: Take an appointment from Esquire Group',
                             style: GoogleFonts.openSans(
                               fontWeight: FontWeight.bold,
                               fontSize: 12.5,
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 10.0,),
-
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Align(
                           alignment: const Alignment(-0.95, 0),
                           child: Text(
@@ -126,9 +127,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 10.0,),
-
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Align(
                           alignment: const Alignment(-0.95, 0),
                           child: Text(
@@ -139,9 +140,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-
-                        const SizedBox(height: 10.0,),
-
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Align(
                           alignment: const Alignment(-0.95, 0),
                           child: Text(
@@ -153,6 +154,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
 
+                        const SizedBox(
+                          height: 5.0,
+                        ),
                         Align(
                           alignment: const Alignment(-0.95, 0),
                           child: Text(
@@ -196,25 +200,21 @@ class _HomeScreenState extends State<HomeScreen> {
             activeIcon: Icon(FluentSystemIcons.ic_fluent_home_filled),
             label: 'Home',
           ),
-
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_search_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_search_filled),
             label: 'Search',
           ),
-
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_briefcase_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_briefcase_filled),
             label: 'Tasks',
           ),
-
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_certificate_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_certificate_filled),
             label: 'Completed',
           ),
-
           BottomNavigationBarItem(
             icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),

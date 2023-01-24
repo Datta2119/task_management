@@ -1,9 +1,5 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'Models/task.dart';
-import 'Widgets/task_card.dart';
 import 'Widgets/task_list.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   int _selectedIndexValue = 0;
 
   static final List<Widget> _widgetOption = <Widget>[
@@ -22,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Text('Ticket'),
     const Text('Completed'),
     const Text('Profile'),
+    const Text('Users'),
   ];
 
   void _onItemTap(int index) {
@@ -38,12 +36,6 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Center(
           child: Text('App Bar'),
         ),
-        leading: IconButton(
-          onPressed: () {
-            print('menu button is pressed');
-          },
-          icon: const Icon(Icons.menu),
-        ),
         actions: [
           IconButton(
             onPressed: () {
@@ -53,8 +45,167 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+
+      //** APP DRAWER SECTION **//
+      drawer: Drawer(
+        child: Container(
+          color: Colors.blue[200],
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                child: Center(
+                  child: Text(
+                    "L O G O",
+                    style: TextStyle(fontSize: 35.0),
+                  ),
+                ),
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_home_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Home",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  _onItemTap(_selectedIndexValue);
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => _widgetOption[_selectedIndexValue],
+                  //   ),
+                  // );
+                },
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  Icons.search,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Search",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => _widgetOption[_selectedIndexValue],
+                    ),
+                  );
+                },
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_briefcase_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Tasks",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => _widgetOption[_selectedIndexValue],
+                    ),
+                  );
+                },
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_certificate_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Completed Tasks",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => _widgetOption[_selectedIndexValue],
+                    ),
+                  );
+                },
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_person_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Profile",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => _widgetOption[_selectedIndexValue],
+                    ),
+                  );
+                },
+              ),
+
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_people_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Users",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => _widgetOption[_selectedIndexValue],
+                    ),
+                  );
+                  // Navigator.pop(context);
+                },
+              ),
+
+            ],
+          ),
+        ),
+      ),
+
       // ** ALL TASKS LIST VIEW ** //
       body: _widgetOption[_selectedIndexValue],
+
+
+
       // ** FLOATING ACTION BUTTON SECTION ** //
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
@@ -97,6 +248,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(FluentSystemIcons.ic_fluent_person_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_person_filled),
             label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FluentSystemIcons.ic_fluent_people_regular),
+            activeIcon: Icon(FluentSystemIcons.ic_fluent_people_filled),
+            label: 'Users',
           ),
         ],
       ),

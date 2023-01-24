@@ -1,4 +1,4 @@
-class Task{
+class Task {
   String title;
   DateTime createdDate;
   String assignee;
@@ -6,5 +6,8 @@ class Task{
   String status;
   String assigneeImagePath;
   String assignedBy;
-  Task(this.title, this.createdDate, this.assignee, this.deadline, this.status, this.assigneeImagePath, this.assignedBy);
+
+  // ** CONSTRUCTOR DECLARATION ** //
+  Task(this.title, this.createdDate, this.assignee, this.deadline, this.status,
+      this.assigneeImagePath, this.assignedBy);
 }

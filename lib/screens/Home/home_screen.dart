@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/screens/Users/Widgets/users_list.dart';
 import 'Widgets/task_list.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
     const Text('Ticket'),
     const Text('Completed'),
     const Text('Profile'),
-    const Text('Users'),
+    UsersList(),
+    const Text('Posts'),
   ];
 
   void _onItemTap(int index) {
@@ -183,11 +185,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTap: () {
                   _onItemTap(5);
                   Navigator.pop(context);
-
                   // Navigator.pop(context);
                 },
               ),
 
+              ListTile(
+                leading: const Icon(
+                  FluentSystemIcons.ic_fluent_page_filled,
+                  size: 30.0,
+                  color: Colors.black,
+                ),
+                title: const Text(
+                  "Posts",
+                  style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900),
+                ),
+                onTap: () {
+                  _onItemTap(6);
+                  Navigator.pop(context);
+                  // Navigator.pop(context);
+                },
+              ),
             ],
           ),
         ),
@@ -245,6 +265,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(FluentSystemIcons.ic_fluent_people_regular),
             activeIcon: Icon(FluentSystemIcons.ic_fluent_people_filled),
             label: 'Users',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(FluentSystemIcons.ic_fluent_page_regular),
+            activeIcon: Icon(FluentSystemIcons.ic_fluent_page_filled),
+            label: 'Posts',
           ),
         ],
       ),

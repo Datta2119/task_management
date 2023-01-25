@@ -13,7 +13,7 @@ class UsersCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120.0,
-      decoration: isLastItem ? null :const BoxDecoration(
+      decoration: isLastItem ? null : const BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Colors.grey)
         )

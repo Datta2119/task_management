@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:task_management/screens/Users/Models/users_model.dart';
 import 'package:task_management/screens/Users/Widgets/users_card.dart';
 
-class UsersList extends StatelessWidget {
+class UsersList extends StatefulWidget {
+
+  UsersList({Key? key}) : super(key: key);
+
+  @override
+  State<UsersList> createState() => _UsersListState();
+}
+
+class _UsersListState extends State<UsersList> {
   List<User> usersList = <User>[
     User(
       "assets/images/sumon.jpg",
@@ -29,8 +37,6 @@ class UsersList extends StatelessWidget {
       "01670738815",
     ),
   ];
-
-  UsersList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

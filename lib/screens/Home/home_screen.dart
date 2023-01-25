@@ -1,5 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/screens/Posts/Widgets/posts_list.dart';
 import 'package:task_management/screens/Users/Widgets/users_list.dart';
 import 'Widgets/task_list.dart';
 
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const Text('Completed'),
     const Text('Profile'),
     UsersList(),
-    const Text('Posts'),
+    PostList(),
   ];
 
   void _onItemTap(int index) {

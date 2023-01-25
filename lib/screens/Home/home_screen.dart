@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static final List<Widget> _widgetOption = <Widget>[
     TaskList(),
-    const Text('Search'),
+    Scaffold(appBar: AppBar(title: const Text("Search"),),body: const Center(child: Text('Search'))),
     const Text('Ticket'),
     const Text('Completed'),
     const Text('Profile'),
@@ -77,11 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 onTap: () {
                   _onItemTap(_selectedIndexValue);
-                  // Navigator.of(context).push(
-                  //   MaterialPageRoute(
-                  //     builder: (context) => _widgetOption[_selectedIndexValue],
-                  //   ),
-                  // );
+                  Navigator.pop(context);
                 },
               ),
 
@@ -99,11 +95,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w900),
                 ),
                 onTap: () {
+
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => _widgetOption[_selectedIndexValue],
+                      builder: (context) => _widgetOption[1],
                     ),
                   );
+
                 },
               ),
 
@@ -121,11 +119,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w900),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => _widgetOption[_selectedIndexValue],
-                    ),
-                  );
+                  _onItemTap(2);
+                  Navigator.pop(context);
+
                 },
               ),
 
@@ -143,11 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w900),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => _widgetOption[_selectedIndexValue],
-                    ),
-                  );
+                  _onItemTap(3);
+                  Navigator.pop(context);
+
+
                 },
               ),
 
@@ -165,11 +160,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w900),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => _widgetOption[_selectedIndexValue],
-                    ),
-                  );
+                  _onItemTap(4);
+                  Navigator.pop(context);
+
+
                 },
               ),
 
@@ -187,11 +181,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w900),
                 ),
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => _widgetOption[_selectedIndexValue],
-                    ),
-                  );
+                  _onItemTap(5);
+                  Navigator.pop(context);
+
                   // Navigator.pop(context);
                 },
               ),

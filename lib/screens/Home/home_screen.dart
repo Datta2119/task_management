@@ -1,6 +1,6 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:task_management/screens/Posts/Widgets/posts_list.dart';
+import 'package:task_management/screens/Posts/Widgets/post_list.dart';
 import 'package:task_management/screens/Users/Widgets/users_list.dart';
 import 'Widgets/task_list.dart';
 

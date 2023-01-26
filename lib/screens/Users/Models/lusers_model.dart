@@ -1,4 +1,4 @@
-class User {
+class LUser {
   String userImagePath;
   String name;
   String userName;
@@ -7,6 +7,6 @@ class User {
   String phoneNumber;
 
   //  ** CONSTRUCTOR DECLARATION** //
-  User(this.userImagePath, this.name, this.userName, this.webSite, this.email, this.phoneNumber,
+  LUser(this.userImagePath, this.name, this.userName, this.webSite, this.email, this.phoneNumber,
       );
 }

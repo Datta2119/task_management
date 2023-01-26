@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Models/users_model.dart';
+import '../Models/lusers_model.dart';
 
 class UsersCard extends StatelessWidget {
 
-  User user;
+  LUser user;
   bool isLastItem;
   UsersCard({Key? key, required this.user, this.isLastItem = false}) : super(key: key);
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/screens/Users/Models/users_model.dart';
+import 'package:task_management/screens/Users/Models/lusers_model.dart';
 import 'package:task_management/screens/Users/Widgets/users_card.dart';
 
 class UsersList extends StatefulWidget {
@@ -11,8 +11,8 @@ class UsersList extends StatefulWidget {
 }
 
 class _UsersListState extends State<UsersList> {
-  List<User> usersList = <User>[
-    User(
+  List<LUser> usersList = <LUser>[
+    LUser(
       "assets/images/sumon.jpg",
       "Sumon Paul",
       "Paul",
@@ -20,7 +20,7 @@ class _UsersListState extends State<UsersList> {
       "Sincere@april.biz",
       "01670738815",
     ),
-    User(
+    LUser(
       "assets/images/sumon.jpg",
       "Sarfaraj Alam",
       "Sunny",
@@ -28,7 +28,7 @@ class _UsersListState extends State<UsersList> {
       "Sincere@april.biz",
       "01670738815",
     ),
-    User(
+    LUser(
       "assets/images/sumon.jpg",
       "Bishway Datta",
       "Bishway",

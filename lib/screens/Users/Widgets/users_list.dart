@@ -1,55 +1,69 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/screens/Users/Models/lusers_model.dart';
 import 'package:task_management/screens/Users/Widgets/users_card.dart';
 
-class UsersList extends StatefulWidget {
-
-  UsersList({Key? key}) : super(key: key);
+class UserList extends StatefulWidget {
+  const UserList({Key? key}) : super(key: key);
 
   @override
-  State<UsersList> createState() => _UsersListState();
+  State<UserList> createState() => _UserListState();
 }
 
-class _UsersListState extends State<UsersList> {
-  List<LUser> usersList = <LUser>[
-    LUser(
-      "assets/images/sumon.jpg",
-      "Sumon Paul",
-      "Paul",
-      "hildegard.org",
-      "Sincere@april.biz",
-      "01670738815",
-    ),
-    LUser(
-      "assets/images/sumon.jpg",
-      "Sarfaraj Alam",
-      "Sunny",
-      "hildegard.org",
-      "Sincere@april.biz",
-      "01670738815",
-    ),
-    LUser(
-      "assets/images/sumon.jpg",
-      "Bishway Datta",
-      "Bishway",
-      "hildegard.org",
-      "Sincere@april.biz",
-      "01670738815",
-    ),
-  ];
+class _UserListState extends State<UserList> {
+
+  _getUserDataFromInternet() async {
+    try {
+      var response = await Dio().get('https://jsonplaceholder.typicode.com/users');
+      userList.clear();
+      String json = jsonEncode(response.data);
+      print(response.data.toString());
+      final list = listUserFromJson(json);
+      setState(() {
+        userList.addAll(list);
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserDataFromInternet();
+  }
+
+  List<ListUser> userList = <ListUser>[];
+
+  _buildCircularIndicator() {
+    return Center(
+      child: Column(
+        children: const [
+          CircularProgressIndicator(),
+          Text('loading'),
+        ],
+      ),
+    );
+  }
+
+  _buildListView() {
+    return ListView.builder(
+      itemCount: userList.length,
+      itemBuilder: (BuildContext context, int index) {
+        // var isEvenIndex = index % 2 == 0;
+        // var isLastItem = index == userList.length - 1;
+
+        return UserCard(userlist: userList[index],);
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView.builder(
-          itemCount: usersList.length,
-          itemBuilder: (BuildContext context, int index) {
-            var isLastItem = index == usersList.length - 1;
-            return UsersCard(
-              user: usersList[index],
-              isLastItem: isLastItem,
-            );
-          }),
+      child: userList.isEmpty ? _buildCircularIndicator() : _buildListView(),
     );
   }
 }

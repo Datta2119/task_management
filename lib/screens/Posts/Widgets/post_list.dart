@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -11,15 +10,12 @@ class PostList extends StatefulWidget {
 
   @override
   State<PostList> createState() => _PostListState();
-
 }
 
 class _PostListState extends State<PostList> {
-
   _getDataFromInternet() async {
     try {
-      var response = await Dio().get(
-          'https://jsonplaceholder.typicode.com/posts');
+      var response = await Dio().get('https://jsonplaceholder.typicode.com/posts');
       postList.clear();
       String json = jsonEncode(response.data);
       print(response.data.toString());
@@ -38,9 +34,7 @@ class _PostListState extends State<PostList> {
     _getDataFromInternet();
   }
 
-
-  List<Post> postList = <Post>[
-  ];
+  List<Post> postList = <Post>[];
 
   _buildCircularIndicator() {
     return Center(
@@ -63,7 +57,7 @@ class _PostListState extends State<PostList> {
         return PostCard(
           post: postList[index],
           isEvenIndex: isEvenIndex,
-          isLastIndex: isLastItem ,
+          isLastIndex: isLastItem,
         );
       },
     );

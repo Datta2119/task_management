@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:task_management/screens/Users/Models/lusers_model.dart';
 
-import '../Models/lusers_model.dart';
+import '../../Profile/Models/user_model.dart';
 
-class UsersCard extends StatelessWidget {
+class UserCard extends StatelessWidget {
 
-  LUser user;
+  ListUser userlist;
   bool isLastItem;
-  UsersCard({Key? key, required this.user, this.isLastItem = false}) : super(key: key);
+  UserCard({Key? key, required this.userlist, this.isLastItem = false}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 120.0,
       decoration: isLastItem ? null : const BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey)
-        )
+          border: Border(
+              bottom: BorderSide(color: Colors.grey)
+          )
       ),
       margin: const EdgeInsets.symmetric(horizontal: 20),
       // color: Colors.deepPurple[300],
@@ -27,8 +28,8 @@ class UsersCard extends StatelessWidget {
           Container(
             width: 90.0,
             height: 90.0,
-            child: CircleAvatar(
-              backgroundImage: AssetImage(user.userImagePath),
+            child: const CircleAvatar(
+              backgroundImage: AssetImage("assets/images/sumon.jpg"),
             ),
           ),
           const SizedBox(width: 17.0,),
@@ -43,7 +44,7 @@ class UsersCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                        user.name,
+                      userlist.name,
                       style: GoogleFonts.openSans(
                         fontWeight: FontWeight.w900,
                         color: Colors.black87.withOpacity(0.7),
@@ -51,7 +52,7 @@ class UsersCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                        user.userName,
+                      userlist.username,
                       style: GoogleFonts.openSans(
                         fontWeight: FontWeight.w400,
                         color: Colors.grey[500],
@@ -61,7 +62,7 @@ class UsersCard extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  user.phoneNumber,
+                  userlist.phone,
                   style: GoogleFonts.openSans(
                     fontSize: 13.0,
                     fontWeight: FontWeight.w600,
@@ -69,7 +70,7 @@ class UsersCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  user.email,
+                  userlist.email,
                   style: GoogleFonts.openSans(
                     fontSize: 13.0,
                     fontWeight: FontWeight.w600,
@@ -77,7 +78,7 @@ class UsersCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  user.webSite,
+                  userlist.website,
                   style: GoogleFonts.openSans(
                     fontSize: 13.0,
                     fontWeight: FontWeight.w600,

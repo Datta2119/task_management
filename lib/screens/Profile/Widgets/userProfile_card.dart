@@ -6,7 +6,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../Models/user_model.dart';
 
 class UserProfileCard extends StatefulWidget {
-  const UserProfileCard({Key? key}) : super(key: key);
+  int userIndex;
+
+  UserProfileCard({Key? key, this.userIndex = 1}) : super(key: key);
 
   @override
   State<UserProfileCard> createState() => _UserProfileCardState();
@@ -14,7 +16,7 @@ class UserProfileCard extends StatefulWidget {
 
 class _UserProfileCardState extends State<UserProfileCard> {
   late User user;
-  bool isloading = false;
+  bool _isLoading = true;
 
   @override
   void initState() {
@@ -24,12 +26,15 @@ class _UserProfileCardState extends State<UserProfileCard> {
   }
 
   Future<void> _getUserDataFromInternet() async {
-    var url = Uri.parse("https://jsonplaceholder.typicode.com/users/1");
+    var url =
+        Uri.parse("https://jsonplaceholder.typicode.com/users/${widget.userIndex}");
     var response = await http.get(url);
     setState(
-          () {
-        user = User.fromJson(json.decode(response.body),
+      () {
+        user = User.fromJson(
+          json.decode(response.body),
         );
+        _isLoading = false;
       },
     );
   }
@@ -47,10 +52,9 @@ class _UserProfileCardState extends State<UserProfileCard> {
 
   @override
   Widget build(BuildContext context) {
-    var isLoading = false; //Create a local variable
 
     return Container(
-      child: isLoading
+      child: _isLoading
           ? _buildCircularIndicator()
           : Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -234,7 +238,7 @@ class _UserProfileCardState extends State<UserProfileCard> {
                         ),
                       ),
                       Text(
-                        user.phone,
+                        user.email,
                         style: GoogleFonts.poppins(
                           fontSize: 23.0,
                           color: Colors.black.withOpacity(0.8),
@@ -269,10 +273,7 @@ class _UserProfileCardState extends State<UserProfileCard> {
                         ),
                       ),
                       Text(
-                        user.address.suite + " " +
-                            user.address.street + " " +
-                            user.address.city + " " +
-                            user.address.zipcode,
+                        "${user.address.suite} ${user.address.street} ${user.address.city} ${user.address.zipcode}",
                         style: GoogleFonts.poppins(
                           fontSize: 23.0,
                           color: Colors.black.withOpacity(0.8),

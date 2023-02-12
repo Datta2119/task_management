@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/screens/Profile/Models/user_model.dart';
-import 'package:task_management/screens/Profile/Widgets/userProfile_card.dart';
-import 'package:task_management/screens/Users/Widgets/users_card.dart';
+import 'package:task_management/screens/Users/Widgets/user_card.dart';
 
 class UserList extends StatefulWidget {
   const UserList({Key? key}) : super(key: key);
@@ -38,6 +37,8 @@ class _UserListState extends State<UserList> {
     _getUserDataFromInternet();
   }
 
+
+
   List<User> userList = <User>[];
 
   _buildCircularIndicator() {
@@ -63,6 +64,7 @@ class _UserListState extends State<UserList> {
       },
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

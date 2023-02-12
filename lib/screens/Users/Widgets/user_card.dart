@@ -58,7 +58,9 @@ class UserCard extends StatelessWidget {
                           color: Colors.black87.withOpacity(0.7),
                           fontSize: 16.0,
                         ),
+                        overflow: TextOverflow.ellipsis,
                       ),
+
                       onTap: (){
                         _onUserItemTap(user.id, context);
                       },
@@ -70,6 +72,7 @@ class UserCard extends StatelessWidget {
                         color: Colors.grey[500],
                         fontSize: 15.0,
                       ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ],
                 ),

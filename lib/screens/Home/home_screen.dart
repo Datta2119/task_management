@@ -2,7 +2,8 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/screens/Posts/Widgets/post_list.dart';
 import 'package:task_management/screens/Profile/Widgets/userProfile_card.dart';
-import 'package:task_management/screens/Users/Widgets/users_list.dart';
+import 'package:task_management/screens/Tasks/dropdown_menu.dart';
+import 'package:task_management/screens/Users/Widgets/user_list.dart';
 import 'Widgets/task_list.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,9 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
   static final List<Widget> _widgetOption = <Widget>[
     TaskList(),
     Scaffold(appBar: AppBar(title: const Text("Search"),),body: const Center(child: Text('Search'),),),
-    const Text('Ticket'),
+    const DropDownMenu(),
     const Text('Completed'),
-    const UserProfileCard(),
+    UserProfileCard(),
     const UserList(),
     const PostList(),
   ];
